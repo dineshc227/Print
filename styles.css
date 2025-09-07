@@ -4,7 +4,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f783ec; /* Unique soft lavender background */
+    background-color: #8ab8a8; /* Unique soft sage green background */
     color: #2d232e;
     overflow-x: hidden;
 }
@@ -74,14 +74,12 @@ nav a:hover {
 .hero p {
     font-size: clamp(1rem, 2.5vw, 1.2rem);
 }
+
 #services-intro {
     text-align: center;
     padding: clamp(2rem, 5vw, 3rem) 1rem;
-    background-color: #f0e6ef;
+    background-color: #a3c9b8; /* Lighter sage green for contrast */
 }
-
-
-
 
 .services {
     padding: clamp(2rem, 5vw, 3rem) 1rem;
@@ -99,18 +97,21 @@ nav a:hover {
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    animation: popIn 1.2s ease-out forwards;
-    transition: transform 0.4s, box-shadow 0.4s;
+    animation: bounceIn 1.2s ease-out forwards;
+    transition: transform 0.4s, box-shadow 0.4s, filter 0.4s;
 }
 
 .service-card:hover {
-    transform: translateY(-10px) rotate(2deg);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    transform: scale(1.05); /* Pulse effect */
+    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+    filter: brightness(1.1) drop-shadow(0 0 10px rgba(249, 193, 177, 0.5)); /* Glow with coral pink */
 }
 
-@keyframes popIn {
-    from { opacity: 0; transform: scale(0.9) translateY(60px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3) translateY(100px); }
+    50% { opacity: 0.7; transform: scale(1.1) translateY(-20px); }
+    70% { transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .service-card h3 {
@@ -126,22 +127,56 @@ nav a:hover {
 #about, #contact {
     padding: clamp(0rem, 5vw, 0rem) 1rem;
     text-align: center;
-    background-color: #f0e6ef;
+    background-color: #a3c9b8; /* Lighter sage green for contrast */
 }
 
 #about h2, #contact h2 {
     font-family: 'Playfair Display', serif;
     color: #2d232e;
-    font-size: clamp(1.rem, 4vw, 2rem);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+#about p {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 #contact p {
     font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
-#about p {
+
+.map-link {
+    color: #e94c4c; /* Coral pink to match hover colors */
     font-size: clamp(0.9rem, 2.5vw, 1rem);
-    max-width: 600px;
-    margin: 0 auto;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s, transform 0.3s;
+    animation: fadeInMap 1.5s ease-out;
+}
+
+.map-link i {
+    font-size: 1.2rem;
+}
+
+.map-link:hover {
+    color: #6d8299; /* Slate blue for contrast */
+    transform: translateY(-3px);
+}
+
+@keyframes fadeInMap {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.redirect-notice {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    color: #2d232e;
+    display: block;
+    margin-top: 0.5rem;
+    animation: fadeIn 1s ease-out;
 }
 
 footer {
@@ -178,10 +213,15 @@ footer {
     .service-card {
         width: 90%;
         max-width: 400px;
+        animation: bounceIn 1s ease-out forwards; /* Faster animation for mobile */
     }
 
     header, footer {
         padding: 1.5rem;
+    }
+
+    .map-link {
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
     }
 }
 
@@ -196,5 +236,9 @@ footer {
 
     .service-card {
         margin: 0.5rem auto;
+    }
+
+    .map-link i {
+        font-size: 1rem;
     }
 }
