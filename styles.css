@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0e6ef; /* Unique soft lavender background */
+    color: #2d232e;
+    overflow-x: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #6d8299, #d8a7b1); /* Unique gradient: slate blue to soft pink */
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    animation: slideInFromTop 1.2s ease-out;
+}
+
+@keyframes slideInFromTop {
+    from { opacity: 0; transform: translateY(-70px) rotateX(20deg); }
+    to { opacity: 1; transform: translateY(0) rotateX(0); }
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin: 0;
+}
+
+header p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+nav {
+    background-color: #2d232e; /* Unique dark plum */
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav a {
+    color: #f0e6ef;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+    color: #f9c1b1; /* Unique coral pink */
+    transform: translateY(-3px);
+}
+
+.hero {
+    background: linear-gradient(135deg, #a3bffa, #f9c1b1); /* Unique gradient: light purple to coral pink */
+    color: white;
+    text-align: center;
+    padding: clamp(4rem, 10vw, 8rem) 1rem;
+    animation: zoomIn 2s ease-in;
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.hero p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+#services-intro {
+    text-align: center;
+    padding: clamp(2rem, 5vw, 3rem) 1rem;
+    background-color: #f0e6ef;
+}
+
+
+
+
+.services {
+    padding: clamp(2rem, 5vw, 3rem) 1rem;
+    text-align: center;
+    background-color: #fff7f8; /* Light off-white for contrast */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.service-card {
+    width: clamp(250px, 30%, 320px);
+    margin: 1rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    animation: popIn 1.2s ease-out forwards;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) rotate(2deg);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.9) translateY(60px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.service-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: #6d8299; /* Match header gradient start */
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+.service-card p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+#about, #contact {
+    padding: clamp(1rem, 5vw, 0rem) 1rem;
+    text-align: center;
+    background-color: #f0e6ef;
+}
+
+#about h2, #contact h2 {
+    font-family: 'Playfair Display', serif;
+    color: #2d232e;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+#contact p {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+#about p {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #2d232e;
+    color: #f0e6ef;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+    nav {
+        padding: 0.8rem;
+    }
+
+    nav a {
+        margin: 0 0.5rem;
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+    }
+
+    .hero {
+        padding: clamp(3rem, 8vw, 5rem) 1rem;
+    }
+
+    .service-card {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    header, footer {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 420px) {
+    header h1 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .hero h2 {
+        font-size: clamp(1.2rem, 3vw, 1.8rem);
+    }
+
+    .service-card {
+        margin: 0.5rem auto;
+    }
+}
